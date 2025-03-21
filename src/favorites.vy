@@ -14,18 +14,13 @@ list_of_people: public(Person[5])
 name_to_favorite_number: public(HashMap[String[100], uint256])
 index: public(uint256)
 
-struct Car:
-    year: uint256
-    color: String[100]
-
-list_of_cars: public(Car[10])
 
 ##################################################
 #Reference data types
 # - Fixed size list
-nums: public(uint256[10])
+# nums: public(uint256[10])
 # - Mapping
-myMap: public(HashMap[address, uint256])
+# myMap: public(HashMap[address, uint256])
 # - Structs
 # struct Person:
 #     favorite_number: uint256
@@ -64,8 +59,3 @@ def add_person(name: String[100], favorite_number: uint256):
 @external
 def add_one_to_favorite_number():
     self.my_favorite_number = self.my_favorite_number + 1
-
-@external
-def create_car(year: uint256, color: String[100]):
-    new_car: Car = Car(year = year, color = color)
-    self.list_of_cars[self.index] = new_car
