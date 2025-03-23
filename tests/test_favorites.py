@@ -19,3 +19,11 @@ def test_can_add_people(favorites_contract):
 
     # Assert
     assert favorites_contract.list_of_people(0) == (favorite_number, new_person)
+
+
+def test_can_add_one(favorites_contract):
+    starting_number_with_one: int = favorites_contract.retrieve() + 1
+    favorites_contract.add_one_to_favorite_number()
+    ending_number: int = favorites_contract.retrieve()
+
+    assert starting_number_with_one == ending_number
